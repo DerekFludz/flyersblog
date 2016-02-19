@@ -63,13 +63,22 @@ router.get('/:id', function(req, res){
 // EDIT
 ///////////////////////
 
-
+router.get('/:id/edit', function(req, res){
+  res.locals.login = req.isAuthenticated();
+  Article.findById(req.params.id, function(err, data){
+      res.render('articles/edit.ejs', { article: data });
+  });
+});
 
 ///////////////////////
 // UPDATE
 ///////////////////////
 
-
+router.put('/:id', function(req, res){
+  Article.findByIdAndUpdate(req.params.id, req.body, function(err, data){
+    res.redirect('/articles/' + req.params.id);
+  });
+});
 
 ///////////////////////
 // SIGNUP/LOGIN/LOGOUT

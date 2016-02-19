@@ -3,4 +3,5 @@
   <small>by: <%= article.author %></small>
   <img src="<%= article.imgURL %>"/>
   <p><%= article.body %></p>
+  <h3><a href="/articles/<%= article.id %>/edit">Edit Article</a></h3>
 <% include ../partials/footer.ejs %>
