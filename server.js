@@ -31,6 +31,7 @@ app.use(methodOverride('_method'));
 
 // HOME PAGE
 app.get('/', function(req, res){
+  res.locals.login = req.isAuthenticated();
   res.render('index.ejs');
 });
 
@@ -38,9 +39,25 @@ app.get('/', function(req, res){
 var articlesController = require('./controllers/articles.js');
 app.use('/articles', articlesController);
 
+// USERS
+var usersController = require('./controllers/users.js');
+app.use('/users', usersController);
+
+// LOGIN CHECK
+function isLoggedIn(req, res, next) {
+  // if user authenticated, proceed
+  if (req.isAuthenticated())
+    return next();
+
+  // if user not authenticated, redirect home
+  res.redirect('/');
+};
+
 ///////////////////////
 // LISTEN
 ///////////////////////
+
+mongoose.connect(mongoUri);
 
 // db.once('open', function(){
 //   app.listen(port, function(){

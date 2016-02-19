@@ -1,0 +1,8 @@
+<% include ../partials/head.ejs %>
+  <h1>Create New Article</h1>
+  <form action="/articles" method="POST">
+    <input type="text" name="title" placeholder="title">
+    <textarea name="body" rows="8" cols="40">Body goes here</textarea>
+    <button>Create Article</button>
+  </form>
+<% include ../partials/footer.ejs %>

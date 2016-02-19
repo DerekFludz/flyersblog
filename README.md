@@ -22,3 +22,11 @@ Models
   User
   Article
   Comments?
+
+PROFILE(Users) PAGE (if logged in)
+  Create new article
+  View articles (if admin)
+  View comments
+  View favorited articles
+
+nav-bar login - click functions to make login/signup bring up boxes?

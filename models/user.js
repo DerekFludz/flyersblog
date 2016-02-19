@@ -1,6 +1,6 @@
 var mongoose = require('mongoose'),
     bcrypt   = require('bcrypt-nodejs'),
-    Article  = require('./article.js'),
+    Article  = require('./article'),
     Comment  = require('./comment.js');
 
 var userSchema = new mongoose.Schema({

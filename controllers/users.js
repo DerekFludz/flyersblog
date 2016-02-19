@@ -9,55 +9,29 @@ var express  = require('express'),
 // INDEX
 ///////////////////////
 
-router.get('/', function(req, res){
-  res.locals.login = req.isAuthenticated();
-  Article.find({}, function(err, data){
-    res.render('articles/index.ejs', { articles: data });
-  });
-});
+
 
 ///////////////////////
 // NEW
 ///////////////////////
 
-router.get('/new', function(req, res){
-  res.locals.login = req.isAuthenticated();
-  res.render('articles/new.ejs');
-});
+
 
 ///////////////////////
 // CREATE
 ///////////////////////
 
-router.post('/', function(req, res){
-  var newArticle = new Article(req.body);
-  newArticle.save(function(err, data){
-    res.redirect('/articles');
-  });
-});
 
-// router.post('/', function(req, res){
-//   var newArticle = new Article(req.body);
-//   newArticle.save(function(err, data){
-//     User.findById(req.user.id, function(err, user){
-//       user.articles.push(newArticle);
-//       user.save(function(err, data){
-//         res.redirect('/articles');
-//       });
-//     });
-//   });
-// });
 
 ///////////////////////
 // SHOW
 ///////////////////////
 
-router.get('/:id', function(req, res){
-  res.locals.login = req.isAuthenticated();
-  Article.findById(req.params.id, function(err, data){
-    res.render('articles/show.ejs', { articles: data });
-  });
-});
+// router.get('/:id', function(req, res){
+//   User.findById(req.params.id, function(err, data){
+//     res.render('users/index.ejs', { users: data });
+//   });
+// });
 
 ///////////////////////
 // EDIT
@@ -94,11 +68,7 @@ router.get('/:id', function(req, res){
 // DESTROY
 ///////////////////////
 
-router.delete('/:id', function(req, res){
-  Article.findByIdAndRemove(req.params.id, function(err, article){
-    res.redirect('/articles');
-  });
-});
+
 
 // LOGIN CHECK
 function isLoggedIn(req, res, next) {

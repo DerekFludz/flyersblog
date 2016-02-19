@@ -11,7 +11,16 @@
         <ul>
           <li><a href="/">Home</a></li>
           <li><a href="/articles">Posts</a></li>
-          <!-- <li><a href="/profile">Profile</a></li> -->
+          <% if (!login) { %>
+            <li class="signup"><a href="#">Sign Up</a>
+            <li class="login"><a href="#">Login</a>
+            <!-- <li><form action="/login" method="POST">
+              <input type="text" name="email" value="email">
+              <input type="text" name="password" value="password">
+            </form></li> -->
+        <% } else { %>
+            <li><a href="/users/" + req.user.id>Profile</a></li>
+        <% } %>
         </ul>
       </div>
     </header>
