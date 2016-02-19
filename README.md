@@ -30,3 +30,4 @@ PROFILE(Users) PAGE (if logged in)
   View favorited articles
 
 nav-bar login - click functions to make login/signup bring up boxes?
+text area vs other options for formatting of body of articles

@@ -1,3 +1,6 @@
 <% include ../partials/head.ejs %>
-
+  <h1><%= article.title %></h1>
+  <small>by: <%= article.author %></small>
+  <img src="<%= article.imgURL %>"/>
+  <p><%= article.body %></p>
 <% include ../partials/footer.ejs %>

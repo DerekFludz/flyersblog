@@ -55,7 +55,7 @@ router.post('/', function(req, res){
 router.get('/:id', function(req, res){
   res.locals.login = req.isAuthenticated();
   Article.findById(req.params.id, function(err, data){
-    res.render('articles/show.ejs', { articles: data });
+    res.render('articles/show.ejs', { article: data });
   });
 });
 
