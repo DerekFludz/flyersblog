@@ -1,6 +1,7 @@
 var mongoose = require('mongoose'),
     bcrypt   = require('bcrypt-nodejs'),
-    Article  = require('./article.js');
+    Article  = require('./article.js'),
+    Comment  = require('./comment.js');
 
 var userSchema = new mongoose.Schema({
   username: { type: String, required: true },
@@ -8,7 +9,8 @@ var userSchema = new mongoose.Schema({
   password: { type: String, required: true },
   dateCreated: { type: Date, default: Date.now },
   admin: Boolean,
-  articles: [Article.schema]
+  articles: [Article.schema],
+  comments: [Comment.schema]
 });
 
 // userSchema.methods.generateHash = function(password) {

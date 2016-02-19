@@ -3,9 +3,15 @@
   padding: 0;
 }
 
+@font-face {
+  font-family: 'flyers';
+  src: url('../fonts/Play-Regular.ttf');
+}
+
 body {
   background-color: orange;
   text-align: center;
+  font-family: 'flyers';
 }
 
 header {

@@ -1,10 +1,13 @@
-var mongoose = require('mongoose');
+var mongoose = require('mongoose'),
+    Comment  = require('./comment.js');
 
 var articleSchema = new mongoose.Schema({
   title: { type: String, required: true },
   author: String,
   dateCreated: { type: Date, default: Date.now },
-  body: String
+  imageURL: String,
+  body: String,
+  comments: [Comment.schema]
 });
 
 var Article = mongoose.model('Article', articleSchema);
