@@ -4,4 +4,7 @@
   <img src="<%= article.imgURL %>"/>
   <p><%= article.body %></p>
   <h3><a href="/articles/<%= article.id %>/edit">Edit Article</a></h3>
+  <form action="/articles/<%= article.id %>?_method=DELETE" method="POST">
+    <button class="delete">DELETE ARTICLE</button>
+  </form>
 <% include ../partials/footer.ejs %>
