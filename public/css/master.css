@@ -1,0 +1,35 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: orange;
+  text-align: center;
+}
+
+header {
+  height: 50px;
+  margin-bottom: 1em;
+}
+
+.nav-bar {
+  background-color: black;
+  position: fixed;
+  width: 100%;
+  padding: 1em;
+}
+
+.nav-bar li {
+  width: 30%;
+  display: inline-block;
+}
+
+.nav-bar li a {
+  color: orange;
+  font-size: larger;
+}
+
+ul, li {
+  list-style: none;
+}

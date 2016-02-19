@@ -1,0 +1,53 @@
+var express = require('express'),
+    router  = express.Router(),
+    Article = require('../models/article.js'),
+    User    = require('../models/user.js');
+
+///////////////////////
+// INDEX
+///////////////////////
+
+router.get('/', function(req, res){
+  Article.find({}, function(err, data){
+    res.render('articles/index.ejs', { articles: data });
+  });
+});
+
+///////////////////////
+// NEW
+///////////////////////
+
+
+
+///////////////////////
+// CREATE
+///////////////////////
+
+
+
+///////////////////////
+// SHOW
+///////////////////////
+
+
+
+///////////////////////
+// EDIT
+///////////////////////
+
+
+
+///////////////////////
+// UPDATE
+///////////////////////
+
+
+
+///////////////////////
+// DESTROY
+///////////////////////
+
+
+
+// EXPORT
+module.exports = router;
