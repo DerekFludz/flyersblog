@@ -31,6 +31,7 @@ router.get('/', function(req, res){
 ///////////////////////
 
 router.get('/:id', function(req, res){
+  res.locals.admin = req.user.admin;
   res.locals.login = req.isAuthenticated();
   User.findById(req.params.id, function(err, data){
     res.render('users/index.ejs', { user: data });

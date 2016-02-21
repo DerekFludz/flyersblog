@@ -5,4 +5,9 @@
       <h3><a href="/articles/<%= user.articles[i].id %>"><%= user.articles.title %></a></h3>
     <% } %>
   </div>
+  <% if (admin) { %>
+  <p>true</p>
+  <% } else { %>
+    <p>false</p>
+    <% } %>
 <% include ../partials/footer.ejs %>
