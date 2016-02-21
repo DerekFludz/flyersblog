@@ -9,7 +9,10 @@ var express  = require('express'),
 // INDEX
 ///////////////////////
 
-
+router.get('/', function(req, res){
+  res.locals.login = req.isAuthenticated();
+  res.redirect('/users/' + req.user.id);
+});
 
 ///////////////////////
 // NEW
@@ -27,11 +30,12 @@ var express  = require('express'),
 // SHOW
 ///////////////////////
 
-// router.get('/:id', function(req, res){
-//   User.findById(req.params.id, function(err, data){
-//     res.render('users/index.ejs', { users: data });
-//   });
-// });
+router.get('/:id', function(req, res){
+  res.locals.login = req.isAuthenticated();
+  User.findById(req.params.id, function(err, data){
+    res.render('users/index.ejs', { user: data });
+  });
+});
 
 ///////////////////////
 // EDIT
@@ -49,20 +53,15 @@ var express  = require('express'),
 // SIGNUP/LOGIN/LOGOUT
 ///////////////////////
 
-// router.post('/', passport.authenticate('local-signup', {
-//   failureRedirect: '/' }), function(req, res){
-//     res.redirect('/articles');
-//   });
+router.post('/', passport.authenticate('local-signup', {
+  failureRedirect: '/' }), function(req, res){
+    res.redirect('/articles');
+  });
 
-// router.post('/login', passport.authenticate('local-login', {
-//   failureRedirect: '/' }), function(req, res){
-//     res.redirect('/articles');
-// });
-
-// router.get('/logout', function(req, res){
-//   req.logout();
-//   res.redirect('/');
-// });
+router.post('/login', passport.authenticate('local-login', {
+  failureRedirect: '/' }), function(req, res){
+    res.redirect('/articles');
+});
 
 ///////////////////////
 // DESTROY

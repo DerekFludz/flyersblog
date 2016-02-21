@@ -4,23 +4,36 @@
     <meta charset="utf-8">
     <title>Legions, Bullies, and Ghost Bears, Oh My</title>
     <link rel="stylesheet" href="/css/master.css" media="screen" title="no title" charset="utf-8">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+    <script type="text/javascript" src="/js/articles.js"></script>
   </head>
   <body>
     <header>
       <div class="nav-bar">
         <ul>
           <li><a href="/">Home</a></li>
-          <li><a href="/articles">Posts</a></li>
+          <li><a href="/articles">Articles</a></li>
           <% if (!login) { %>
-            <li class="signup"><a href="#">Sign Up</a>
-            <li class="login"><a href="#">Login</a>
-            <!-- <li><form action="/login" method="POST">
-              <input type="text" name="email" value="email">
-              <input type="text" name="password" value="password">
-            </form></li> -->
+            <li class="signup"><a href="#">Sign Up</a></li>
+            <li class="login"><a href="#">Login</a></li>
         <% } else { %>
-            <li><a href="/users/" + req.user.id>Profile</a></li>
+            <li><a href="/users">Profile</a></li>
+            <li><a href="/logout">Logout</a></li>
         <% } %>
         </ul>
+        <% if (!login) { %>
+        <form class="signup-form" action="/users" method="POST">
+          <input type="text" name="username" placeholder="username">
+          <input type="text" name="email" placeholder="email">
+          <input type="text" name="password" placeholder="password">
+          <button>Sign Up</button>
+        </form>
+        <form class="login-form" action="/users/login" method="POST">
+          <input type="text" name="username" placeholder="username">
+          <input type="text" name="email" placeholder="email">
+          <input type="text" name="password" placeholder="password">
+          <button>Login</button>
+        </form>
+        <% } %>
       </div>
     </header>

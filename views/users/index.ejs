@@ -1,0 +1,8 @@
+<% include ../partials/head.ejs %>
+  <h1>Hello, <%= user.username %></h1>
+  <div>
+    <% for (var i=0; i < user.articles.length; i++) { %>
+      <h3><a href="/articles/<%= user.articles[i].id %>"><%= user.articles.title %></a></h3>
+    <% } %>
+  </div>
+<% include ../partials/footer.ejs %>

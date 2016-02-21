@@ -1,5 +1,6 @@
 var express        = require('express'),
     app            = express(),
+    morgan         = require('morgan'),
     bodyParser     = require('body-parser'),
     methodOverride = require('method-override'),
     mongoose       = require('mongoose'),
@@ -19,11 +20,11 @@ app.use(bodyParser.json());
 app.use(methodOverride('_method'));
 
 // PASSPORT
-// app.use(session({secret:'ghostbear'}));
-// app.use(passport.initialize());
-// app.use(passport.session());
+app.use(session({secret:'ghostbear'}));
+app.use(passport.initialize());
+app.use(passport.session());
 
-// require('./config/passport.js')(passport);
+require('./config/passport.js')(passport);
 
 ///////////////////////
 // CONTROLLERS
@@ -42,6 +43,12 @@ app.use('/articles', articlesController);
 // USERS
 var usersController = require('./controllers/users.js');
 app.use('/users', usersController);
+
+// LOGOUT
+app.get('/logout', function(req, res){
+  req.logout();
+  res.redirect('/');
+});
 
 // LOGIN CHECK
 function isLoggedIn(req, res, next) {
