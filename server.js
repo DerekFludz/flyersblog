@@ -1,6 +1,6 @@
 var express        = require('express'),
     app            = express(),
-    morgan         = require('morgan'),
+    logger         = require('morgan'),
     bodyParser     = require('body-parser'),
     methodOverride = require('method-override'),
     mongoose       = require('mongoose'),
