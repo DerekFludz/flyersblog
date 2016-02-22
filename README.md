@@ -32,3 +32,4 @@ PROFILE(Users) PAGE (if logged in)
 nav-bar login - click functions to make login/signup bring up boxes?
 text area vs other options for formatting of body of articles
 associate comments by username
+schema methods for DRY deletion?

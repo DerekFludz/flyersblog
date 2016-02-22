@@ -114,7 +114,20 @@ router.put('/:id', function(req, res){
 
 // ARTICLE
 router.delete('/:id', function(req, res){
+  // remove article from articles collection
   Article.findByIdAndRemove(req.params.id, function(err, article){
+    for (var i=0; i < article.comments.length; i++){
+      // remove associated comments from comments collection
+      Comment.findByIdAndRemove(article.comments[i].id, function(err, comment){
+        // remove associated comments from user record
+        User.findById(comment.author_id, function(err, user){
+          user.comments.id(comment.id).remove();
+          user.save(function(){
+          });
+        });
+      });
+    };
+    // remove article from user record
     User.findById(article.author_id, function(err, user){
       user.articles.id(req.params.id).remove();
       user.save(function(){

@@ -7,7 +7,7 @@
   </div>
   <div class="comments-container">
     <% if (login) { %>
-      <small class="add-comment"><a href="#">Add New Comment</a></small>
+      <!-- <small class="add-comment"><a href="#">Add New Comment</a></small> -->
       <form class="comment-form" action="/articles/<%= article.id %>/comments" method="POST">
         <input type="hidden" name="author" value="<%= username %>">
         <input type="hidden" name="author_id" value="<%= author_id %>">
