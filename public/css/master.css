@@ -40,7 +40,7 @@ ul, li {
   list-style: none;
 }
 
-.signup-form, .login-form {
+.signup-form, .login-form, .add-comment {
   visibility: hidden;
   padding-top: 0.25em;
   display: inline-block;
@@ -50,5 +50,29 @@ ul, li {
   width: 50%;
   height: 500px;
   margin: 0 auto;
-  border: 5px solid black;
+  border: 3px solid black;
+}
+
+.indiv-article {
+  border: 1px solid black;
+  width: 40%;
+  margin: 0 auto;
+  margin-top: 1em;
+  padding: 0.5em;
+}
+
+.indiv-article h2, small, form {
+  display: inline-block;
+  padding-right: 1em;
+}
+
+.comments-container {
+  width: 50%;
+  margin: 0 auto;
+  border: 3px solid black;
+}
+
+.comment {
+  border: 1px solid purple;
+  margin: 0 auto;
 }

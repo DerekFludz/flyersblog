@@ -4,6 +4,7 @@ var mongoose = require('mongoose'),
 var articleSchema = new mongoose.Schema({
   title: { type: String, required: true },
   author: String,
+  author_id: String,
   dateCreated: { type: Date, default: Date.now },
   imageURL: String,
   body: String,

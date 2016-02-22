@@ -13,6 +13,10 @@ var userSchema = new mongoose.Schema({
   comments: [Comment.schema]
 });
 
+// userSchema.methods.deleteComment = function(id) {
+//   comments.id.remove();
+// };
+
 userSchema.methods.generateHash = function(password) {
   return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
 };

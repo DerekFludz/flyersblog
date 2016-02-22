@@ -1,13 +1,17 @@
 <% include ../partials/head.ejs %>
   <h1>Hello, <%= user.username %></h1>
-  <div>
-    <% for (var i=0; i < user.articles.length; i++) { %>
-      <h3><a href="/articles/<%= user.articles[i].id %>"><%= user.articles.title %></a></h3>
-    <% } %>
-  </div>
   <% if (admin) { %>
-  <p>true</p>
-  <% } else { %>
-    <p>false</p>
-    <% } %>
+    <small><a href="/articles/new">New Article</a></small></br>
+    <div class="user-articles-container">
+      <% for (var i=0; i < user.articles.length; i++) { %>
+        <div class="indiv-article">
+          <h2><a href="/articles/<%= user.articles[i].id %>"><%= user.articles[i].title %></a></h2>
+          <small><a href="/articles/<%= user.articles[i].id %>/edit">Edit Article</a></small>
+          <form action="/articles/<%= user.articles[i].id %>?_method=DELETE" method="POST">
+            <button class="delete">DELETE ARTICLE</button>
+          </form>
+        </div>
+      <% } %>
+    </div>
+  <% } %>
 <% include ../partials/footer.ejs %>
