@@ -103,8 +103,10 @@ router.get('/:id/edit', function(req, res){
 ///////////////////////
 
 router.put('/:id', function(req, res){
-  Article.findByIdAndUpdate(req.params.id, req.body, function(err, data){
-    res.redirect('/articles/' + req.params.id);
+  Article.findByIdAndUpdate(req.params.id, req.body, function(err, article){
+    User.update({_id: article.author_id, 'articles._id': req.params.id}, {$set:{'articles.$': req.body}}, function(){
+      res.redirect('/articles/' + req.params.id);
+    });
   });
 });
 

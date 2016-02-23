@@ -7,6 +7,7 @@ var userSchema = new mongoose.Schema({
   username: { type: String, required: true, unique: true },
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true },
+  profileIMG: String,
   dateCreated: { type: Date, default: Date.now },
   admin: Boolean,
   articles: [Article.schema],

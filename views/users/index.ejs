@@ -1,5 +1,10 @@
 <% include ../partials/head.ejs %>
   <h1>Hello, <%= user.username %></h1>
+  <!-- <img class="profile-pic" src="<%= user.profileIMG %>"/>
+  <form action="/users/<%= user.id %>/image" method="POST">
+    <input type="text" name="profileIMG" placeholder="Image URL">
+    <input type="submit">
+  </form> -->
   <% if (admin) { %>
     <small><a href="/articles/new">New Article</a></small></br>
     <div class="user-articles-container">
