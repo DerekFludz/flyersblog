@@ -1,35 +1,14 @@
-// Index Page w/ optional login
-// Articles (display X latest)
-  // Comments under Article, login prompt if not logged in
-// Archives?
+# Flyers Blog
 
-Admin(s) that can CRUD posts
-  Separate model? By ID?
-Other Users that can CRUD comments, like/favorite, share
+[Public Repo](https://github.com/DerekFludz/flyersblog)
 
-Home Page
-  Link to recent posts
-  Other links
-  About blog
-  Contact info
+## Tech Used
 
-Article Page
-  1 post? More posts?
-  Comment Section
-  Link to other recent posts (recent post container with mongoose limits?)
+*  Node.js     |  Express  |  Passport  |  MongoDB
+*  Javascript  |  JQuery   |  CSS
 
-Models
-  User
-  Article
-  Comments?
+## Features
 
-PROFILE(Users) PAGE (if logged in)
-  Create new article
-  View articles (if admin)
-  View comments
-  View favorited articles
+* User Authentication
 
-nav-bar login - click functions to make login/signup bring up boxes?
-text area vs other options for formatting of body of articles
-associate comments by username
-schema methods for DRY deletion?
+## Future Implementations

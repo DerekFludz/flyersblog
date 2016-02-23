@@ -94,7 +94,7 @@ router.get('/:id', function(req, res){
 router.get('/:id/edit', function(req, res){
   res.locals.login = req.isAuthenticated();
   Article.findById(req.params.id, function(err, data){
-      res.render('articles/edit.ejs', { article: data });
+    res.render('articles/edit.ejs', { article: data });
   });
 });
 
@@ -140,10 +140,13 @@ router.delete('/:id', function(req, res){
 // COMMENT
 router.delete('/:index/:id', function(req, res){
   Article.findById(req.params.index, function(err, article){
+    // remove individual comment from article
     article.comments.id(req.params.id).remove();
     article.save(function(){
+      // remove individual comment from comments collection
       Comment.findByIdAndRemove(req.params.id, function(err, comment){
         comment.save(function(){
+          // remove individual comment from user record
           User.findById(comment.author_id, function(err, user){
             user.comments.id(req.params.id).remove();
             user.save(function(){
