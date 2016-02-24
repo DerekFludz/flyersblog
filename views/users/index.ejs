@@ -1,5 +1,5 @@
 <% include ../partials/head.ejs %>
-  <h1>Hello, <%= user.username %></h1>
+  <h1>Hello, <%= user.username %></h1></br>
   <!-- <img class="profile-pic" src="<%= user.profileIMG %>"/>
   <form action="/users/<%= user.id %>/image" method="POST">
     <input type="text" name="profileIMG" placeholder="Image URL">
@@ -18,5 +18,8 @@
         </div>
       <% } %>
     </div>
+  <% } else { %>
+  <h2>More Content Pending! Beezer will guard your profile for you in the meantime:<h2></br>
+  <img src="/images/beezer.jpg"/>
   <% } %>
 <% include ../partials/footer.ejs %>

@@ -8,6 +8,23 @@
   src: url('../fonts/Play-Regular.ttf');
 }
 
+@keyframes puck {
+  0%    { left:0%; top:0%; }
+  25%   { left:50%; top:0%; }
+  50%   { left:100%; top:50%; }
+  75%   { left:50%; top:50%; }
+  100%  { left:0%; top:0%; }
+}
+
+.puck {
+	width: 25px;
+	height: 25px;
+	border-radius: 50%;
+	background-color: orange;
+	position: relative;
+  animation: puck 20s linear infinite;
+}
+
 body {
   background-color: orange;
   text-align: center;
@@ -16,7 +33,7 @@ body {
 
 header {
   height: 50px;
-  margin-bottom: 2em;
+  margin-bottom: 3em;
 }
 
 .nav-bar {
