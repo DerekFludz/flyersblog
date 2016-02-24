@@ -24,6 +24,7 @@ router.get('/new', function(req, res){
   if (req.isAuthenticated()) {
     res.locals.admin = req.user.admin;
     res.locals.author_id = req.user.id;
+    res.locals.username = req.user.username;
   };
   res.locals.login = req.isAuthenticated();
   res.render('articles/new.ejs');
@@ -104,7 +105,7 @@ router.get('/:id/edit', function(req, res){
 
 router.put('/:id', function(req, res){
   Article.findByIdAndUpdate(req.params.id, req.body, function(err, article){
-    User.update({_id: article.author_id, 'articles._id': req.params.id}, {$set:{'articles.$': req.body}}, function(){
+    User.update({_id: article.author_id, 'articles._id': req.params.id}, {$set:{'articles.$.title': req.body.title}}, {$set:{'articles.$.body': req.body.body}}, function(){
       res.redirect('/articles/' + req.params.id);
     });
   });

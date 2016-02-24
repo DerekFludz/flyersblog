@@ -1,6 +1,8 @@
 <% include ../partials/head.ejs %>
   <% for (var i=0; i < articles.length; i++) { %>
-    <h1><a href="/articles/<%= articles[i].id %>"><%= articles[i].title %></a></h1>
-    <img src="<%= articles[i].imgURL %>"/>
+    <div class="indiv-article">
+      <h1><a href="/articles/<%= articles[i].id %>"><%= articles[i].title %></a></h1>
+      <img src="<%= articles[i].imgURL %>"/>
+    </div>
   <% } %>
 <% include ../partials/footer.ejs %>

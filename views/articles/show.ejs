@@ -1,29 +1,28 @@
 <% include ../partials/head.ejs %>
   <div class="article-container">
-    <h1><%= article.title %></h1>
+    <h1><%= article.title %></h1></br>
     <small>by: <%= article.author %></small>
     <img src="<%= article.imgURL %>"/>
     <pre><%= article.body %></pre>
   </div>
   <div class="comments-container">
     <% if (login) { %>
-      <!-- <small class="add-comment"><a href="#">Add New Comment</a></small> -->
       <form class="comment-form" action="/articles/<%= article.id %>/comments" method="POST">
         <input type="hidden" name="author" value="<%= username %>">
         <input type="hidden" name="author_id" value="<%= author_id %>">
-        <input type="text" name="body" placeholder="New Comment">
-        <input type="submit">
+        <input class="comment-box" type="text" name="body" placeholder="New Comment">
+        <input class="submit" type="submit">
       </form>
     <% } %>
     <% for (var i=0; i < article.comments.length; i++) { %>
     <div class="comment">
-      <small><%= article.comments[i].author %></small>
-      <img src="<%= article.comments[i].authorIMG %>"/>
-      <p><%= article.comments[i].body %></p>
+      <small><%= article.comments[i].author %>: <%= article.comments[i].body %></small>
+      <!-- <img src="<%= article.comments[i].authorIMG %>"/> -->
+      <!-- <p><%= article.comments[i].body %></p> -->
       <% if (login) { %>
         <% if (admin) { %>
           <form class="delete-comment" action="/articles/<%= article.id %>/<%= article.comments[i].id %>?_method=DELETE" method="POST">
-            <button>delete comment</button>
+            <button class="delete">delete comment</button>
           </form>
         <% } %>
       <% } %>

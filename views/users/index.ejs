@@ -10,9 +10,9 @@
     <div class="user-articles-container">
       <% for (var i=0; i < user.articles.length; i++) { %>
         <div class="indiv-article">
-          <h2><a href="/articles/<%= user.articles[i].id %>"><%= user.articles[i].title %></a></h2>
-          <small><a href="/articles/<%= user.articles[i].id %>/edit">Edit Article</a></small>
-          <form action="/articles/<%= user.articles[i].id %>?_method=DELETE" method="POST">
+          <h2><a href="/articles/<%= user.articles[i]._id %>"><%= user.articles[i].title %></a></h2>
+          <small><a href="/articles/<%= user.articles[i]._id %>/edit">Edit Article</a></small>
+          <form action="/articles/<%= user.articles[i]._id %>?_method=DELETE" method="POST">
             <button class="delete">DELETE ARTICLE</button>
           </form>
         </div>

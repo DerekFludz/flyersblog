@@ -47,7 +47,7 @@ ul, li {
 }
 
 .article-container {
-  width: 50%;
+  width: 60%;
   height: 100%;
   margin: 0 auto;
   border: 3px solid black;
@@ -67,12 +67,57 @@ ul, li {
 }
 
 .comments-container {
-  width: 50%;
+  width: 60%;
   margin: 0 auto;
   border: 3px solid black;
 }
 
+pre {
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
+
+textarea {
+  margin-top: 1em;
+}
+
+.comment-form {
+  margin: 0.5em;
+}
+
+.comment-box {
+  padding: 0.5em;
+}
+
 .comment {
-  border: 1px solid purple;
+  border-top: 2px solid purple;
+  border-bottom: 2px solid purple;
   margin: 0 auto;
+  text-align: left;
+  padding: 0.5em;
+}
+
+.about {
+  margin: 1em;
+}
+
+.comment small, p, button {
+  display: inline-block;
+}
+
+.comment:last-child {
+  border-bottom: none;
+}
+
+button {
+  padding: 10px 20px;
+}
+
+button:hover, .submit:hover {
+  transform: scale(1.2);
+}
+
+.delete {
+  padding: 5px 10px;
+  margin-right: 0;
 }

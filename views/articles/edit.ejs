@@ -2,7 +2,7 @@
   <h1>Edit Article</h1>
   <form action="/articles/<%= article.id %>?_method=PUT" method="POST">
     <input type="text" name="title" value="<%= article.title %>">
-    <textarea name="body" rows="8" cols="40"><%= article.body %></textarea>
+    <textarea wrap="hard" name="body" rows="8" cols="40"><%= article.body %></textarea>
     <button>Edit Article</button>
   </form>
 <% include ../partials/footer.ejs %>
