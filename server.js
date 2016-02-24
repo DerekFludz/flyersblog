@@ -67,14 +67,16 @@ function isLoggedIn(req, res, next) {
 
 mongoose.connect(mongoUri);
 
-// db.once('open', function(){
-//   app.listen(port, function(){
-//     console.log('listening');
-//   });
-// });
-
-app.listen(port, function(){
-  console.log('=============================');
-  console.log('Running on port ' + port)
-  console.log('=============================');
+db.once('open', function(){
+  app.listen(port, function(){
+    console.log('=============================');
+    console.log('Running on port ' + port);
+    console.log('=============================');
+  });
 });
+
+// app.listen(port, function(){
+  // console.log('=============================');
+  // console.log('Running on port ' + port);
+  // console.log('=============================');
+// });
