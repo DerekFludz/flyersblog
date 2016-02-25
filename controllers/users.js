@@ -24,11 +24,12 @@ router.get('/', function(req, res){
 // CREATE
 ///////////////////////
 
-router.post('/:id/image', function(req, res){
-  User.findByIdAndUpdate(req.params.id, {$set:{profileIMG:req.body}}, {new:true}, function(){
-    res.redirect('/users/' + req.params.id);
-  });
-});
+// future implementation of profile images
+// router.post('/:id/image', function(req, res){
+//   User.findByIdAndUpdate(req.params.id, {$set:{profileIMG:req.body}}, {new:true}, function(){
+//     res.redirect('/users/' + req.params.id);
+//   });
+// });
 
 ///////////////////////
 // SHOW

@@ -34,17 +34,12 @@ router.get('/new', function(req, res){
 // CREATE
 ///////////////////////
 
-// router.post('/', function(req, res){
-//   var newArticle = new Article(req.body);
-//   newArticle.save(function(err, data){
-//     res.redirect('/articles');
-//   });
-// });
-
 // ARTICLE
 router.post('/', function(req, res){
   var newArticle = new Article(req.body);
+  // create and save new article
   newArticle.save(function(err, data){
+    // push new article into user's array of articles
     User.findById(req.user.id, function(err, user){
       user.articles.push(newArticle);
       user.save(function(err, data){
@@ -57,11 +52,14 @@ router.post('/', function(req, res){
 // COMMENT
 router.post('/:id/comments', function(req, res){
   var newComment = new Comment(req.body);
+  // create comment and save to comments collection
   newComment.save(function(err, data){
     Article.findById(req.params.id, function(err, article){
+      // push new comment into article's array of comments
       article.comments.push(newComment);
       article.save(function(err, data){
         User.findById(req.user.id, function(err, user){
+          // push new comment into user's array of comments
           user.comments.push(newComment);
           user.save(function(err, data){
             res.redirect('/articles/' + req.params.id);
@@ -104,7 +102,9 @@ router.get('/:id/edit', function(req, res){
 ///////////////////////
 
 router.put('/:id', function(req, res){
+  // Access the article that is being edited and change it in the Articles collection
   Article.findByIdAndUpdate(req.params.id, req.body, function(err, article){
+    // Access the user via the article's author_id and update the title and body of the specific article in the user's array of articles
     User.update({_id: article.author_id, 'articles._id': req.params.id}, {$set:{'articles.$.title': req.body.title}}, {$set:{'articles.$.body': req.body.body}}, function(){
       res.redirect('/articles/' + req.params.id);
     });

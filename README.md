@@ -1,6 +1,7 @@
 # Flyers Blog
 
 [Public Repo](https://github.com/DerekFludz/flyersblog)
+[Deployed Site](https://damp-plains-34311.herokuapp.com)
 
 ## Tech Used
 
